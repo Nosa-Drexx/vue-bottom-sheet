@@ -1,14 +1,27 @@
-<script  lang="ts">
+<script lang="ts">
+import BottomSheet from './components/BottomSheet.vue'
+
+export default {
+  components: {
+    BottomSheet
+  },
+  data: () => ({
+    showSheet: false
+  }),
+
+  methods: {
+    hideSheet() {
+      this.showSheet = false
+    }
+  }
+}
 </script>
 
 <template>
-  <header>
-  
-  </header>
-
   <main>
+    <button @click="showSheet = true">Show sheet</button>
+    <BottomSheet :showSheet="showSheet" :onClose="hideSheet" />
   </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
