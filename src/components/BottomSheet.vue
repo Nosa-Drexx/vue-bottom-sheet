@@ -12,7 +12,7 @@ export default defineComponent({
     ['closed']: (value: true) => value
   },
   props: {
-    showSheet: Boolean as PropType<boolean>,
+    showSheet: { type: Boolean as PropType<boolean>, default: false },
     maxHeight: {
       type: Number as PropType<number>,
       default: 80,
@@ -25,6 +25,10 @@ export default defineComponent({
       default: 576
     },
     onClose: { type: Function as PropType<(...val: any) => void>, default: () => {} },
+    closeWithOverlay: {
+      type: Boolean as PropType<boolean>,
+      default: true
+    },
     useDragEffect: {
       type: Boolean as PropType<boolean>,
       default: true
@@ -101,6 +105,7 @@ export default defineComponent({
   methods: {
     parentClicked(e: MouseEvent) {
       e.stopPropagation()
+      if (!this.closeWithOverlay) return
       const parentElement = e.target as HTMLDivElement
       parentElement === this.$refs.contentPopUp && this.onClose()
     },

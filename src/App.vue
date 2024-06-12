@@ -1,7 +1,8 @@
 <script lang="ts">
+import { defineComponent } from 'vue'
 import BottomSheet from './components/BottomSheet.vue'
 
-export default {
+export default defineComponent({
   components: {
     BottomSheet
   },
@@ -14,7 +15,7 @@ export default {
       this.showSheet = false
     }
   }
-}
+})
 </script>
 
 <template>
