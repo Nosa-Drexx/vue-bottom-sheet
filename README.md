@@ -32,7 +32,7 @@ yarn add @nosadev/vue-bottom-sheet
 
 ```vue
 <script setup>
-import  BottomSheet  from '@nosadev/vue-bottom-sheet'
+import { BottomSheet } from '@nosadev/vue-bottom-sheet'
 import { ref } from 'vue'
 
 const showSheet = ref<boolean>(false)
@@ -40,13 +40,13 @@ const showSheet = ref<boolean>(false)
 const closeSheet = () => {
   showSheet.value = false
 }
-const showSheet = () => {
+const showSheetFn = () => {
   showSheet.value = true
 }
 </script>
 
 <template>
-  <button @click="showSheet"> Show Sheet</button>
+  <button @click="showSheetFn"> Show Sheet</button>
   <bottom-sheet :showSheet="showSheet" :onClose="closeSheet">
     <div>
       <h1>Hello World</h1>
@@ -62,7 +62,7 @@ const showSheet = () => {
 ```vue
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BottomSheet from '@nosadev/vue-bottom-sheet'
+import { BottomSheet } from '@nosadev/vue-bottom-sheet'
 
 export default defineComponent({
   components: {
