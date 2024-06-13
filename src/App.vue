@@ -21,8 +21,12 @@ export default defineComponent({
 <template>
   <main>
     <button @click="showSheet = true">Show sheet</button>
-    <BottomSheet :showSheet="showSheet" :onClose="hideSheet" />
+    <BottomSheet :showSheet="showSheet" :onClose="hideSheet" id="nosa" />
   </main>
 </template>
 
-<style scoped></style>
+<style>
+[data-id='nosa-content'] {
+  background: #f9dde0 !important;
+}
+</style>

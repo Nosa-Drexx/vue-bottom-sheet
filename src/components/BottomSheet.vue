@@ -13,6 +13,7 @@ export default defineComponent({
   },
   props: {
     showSheet: { type: Boolean as PropType<boolean>, default: false },
+    id: { type: String as PropType<String> },
     maxHeight: {
       type: Number as PropType<number>,
       default: 80,
@@ -181,18 +182,20 @@ export default defineComponent({
     @mouseup="handleEnd"
     @touchend="handleEnd"
     :style="{ '--overlay-bg': overlayBackground || 'rgba(0, 0, 0, 0.5)' }"
+    :data-id="`${id}-overlay`"
   >
     <div
       class="bottom-sheet-content"
       ref="content"
       :style="{
-        maxHeight: `${currentHeight}%`,
-        maxWidth: `${maxWidth}px`,
+        '--content-max-height': `${currentHeight}%`,
+        '--content-max-width': `${maxWidth}px`,
         '--transition-animation-duration': `${dragSpeed / 10 ? (dragSpeed / 10).toFixed(1) : 2}s`,
         '--background': background ? background : 'white',
         '--top-radius': `${topRadius}px`,
         '--dragPosPadding': `${headerPadding}px`
       }"
+      :data-id="`${id}-content`"
     >
       <div
         class="bottom-sheet-swipe-down"
@@ -200,21 +203,15 @@ export default defineComponent({
         @mousemove="handleMove"
         @touchstart="handleStart"
         @touchmove="handleMove"
+        :data-id="`${id}-header`"
       >
         <slot name="header">
           <span class="bottom-sheet-drag-indicator"></span>
         </slot>
       </div>
-      <div class="bottom-sheet-content-container">
+      <div class="bottom-sheet-content-container" :data-id="`${id}-content`">
         <slot>
-          <div
-            class="w-100"
-            :style="{
-              height: '100%',
-              background: background ? background : 'white',
-              padding: '0rem 1rem'
-            }"
-          >
+          <div class="bottom-sheet-demo">
             <h1>Vue3 Bottom Sheet 🚀</h1>
             <div>
               What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -246,22 +243,6 @@ export default defineComponent({
 *::before {
   box-sizing: border-box;
 }
-html {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-
-.w-100 {
-  width: 100%;
-}
-
 .bottom-sheet-pop-up-container {
   --dragPosPadding: 32px;
   --dragIconHeight: 0.5rem;
@@ -269,6 +250,8 @@ body {
   --background: white;
   --overlay-bg: rgba(0, 0, 0, 0.5);
   --top-radius: 20px;
+  --content-max-height: 80%;
+  --content-max-width: 576px;
 
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -291,6 +274,8 @@ body {
   position: relative;
   width: 100%;
   background: transparent;
+  max-height: var(--content-max-height);
+  max-width: var(--content-max-width);
   border-radius: var(--top-radius) var(--top-radius) 0 0;
   overflow-y: hidden;
   background: var(--background);
@@ -323,5 +308,11 @@ body {
   height: var(--dragIconHeight);
   background: var(--background);
   filter: brightness(0.8);
+}
+.bottom-sheet-demo {
+  width: 100%;
+  height: 100%;
+  padding: 0rem 1rem;
+  background: inherit;
 }
 </style>
