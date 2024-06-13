@@ -2,7 +2,7 @@
 
 Preview
 
-![Example]()
+![Example](https://drive.google.com/file/d/1YuN45oVHuEaK2I1w0NGRV1PCv3INSoTX/view?usp=sharing)
 
 ## Fork from [@nosa/vue-bottom-sheet](https://www.npmjs.com/package/@nosa/vue-bottom-sheet)
 
