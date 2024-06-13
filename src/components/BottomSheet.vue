@@ -1,7 +1,22 @@
 <script lang="ts">
 import { type PropType, defineComponent } from 'vue'
-import type { DataType, DraggingPayload } from '@/global'
-import { isMouseEvent, isTouchEvent } from '@/utils'
+import { isMouseEvent, isTouchEvent } from '../utils'
+
+type DataType = {
+  hidePopUp: boolean
+  startX: number
+  startY: number
+  endX: number
+  endY: number
+  isSwiping: boolean
+  currentHeight: number
+  maxHeightInPx: number
+}
+
+type DraggingPayload = {
+  event: MouseEvent | TouchEvent
+  contentHeight: number
+}
 
 export default defineComponent({
   name: 'BottomSheet',
@@ -33,6 +48,10 @@ export default defineComponent({
     useDragEffect: {
       type: Boolean as PropType<boolean>,
       default: true
+    },
+    useOnlyHeaderForDrag: {
+      type: Boolean as PropType<boolean>,
+      default: false
     },
     dragSpeed: {
       type: Number as PropType<number>,
@@ -189,10 +208,10 @@ export default defineComponent({
     v-if="!hidePopUp"
     @mouseup="handleEnd"
     @touchend="handleEnd"
-    @mousedown="(e) => handleStart(e, 'body')"
-    @mousemove="(e) => handleMove(e, 'body')"
-    @touchstart="(e) => handleStart(e, 'body')"
-    @touchmove="(e) => handleMove(e, 'body')"
+    @mousedown="(e) => (!useOnlyHeaderForDrag ? handleStart(e, 'body') : null)"
+    @mousemove="(e) => (!useOnlyHeaderForDrag ? handleMove(e, 'body') : null)"
+    @touchstart="(e) => (!useOnlyHeaderForDrag ? handleStart(e, 'body') : null)"
+    @touchmove="(e) => (!useOnlyHeaderForDrag ? handleMove(e, 'body') : null)"
     :style="{ '--overlay-bg': overlayBackground || 'rgba(0, 0, 0, 0.5)' }"
     :data-id="`${id}-overlay`"
   >

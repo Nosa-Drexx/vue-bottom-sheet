@@ -1,6 +1,6 @@
 {
   "name": "@nosadev/vue-bottom-sheet",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "private": false,
   "type": "module",
   "description": "A Swipeable Bottom Sheet library for and vue3",
@@ -36,16 +36,17 @@
     ".": {
       "import": "./dist/vue-bottom-sheet.js",
       "require": "./dist/vue-bottom-sheet.umd.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     },
     "./style.css": "./dist/style.css"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite --config vite-demo.config.ts serve --host 0.0.0.0",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview",
     "build-only": "vite build",
+    "deploy": "& vite build && npm publish --access=public",
     "types": "vue-tsc ",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
