@@ -16,7 +16,11 @@
     "moduleResolution": "Bundler",
     "types": ["node"],
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": ["src/App.vue", "src/main.ts"]
 }

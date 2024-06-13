@@ -8,7 +8,7 @@ import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), cssInjectedByJsPlugin(), dts()],
+  plugins: [vue(), cssInjectedByJsPlugin(), dts({ outDir: resolve(__dirname, 'dist/types') })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
