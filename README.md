@@ -4,13 +4,11 @@ Preview
 
 ![Example](https://github.com/Nosa-Drexx/vue-bottom-sheet/assets/96873980/a3605f4d-7805-45b5-a033-2ea8abbf9512)
 
+## Fork from [@nosadev/vue-bottom-sheet](https://www.npmjs.com/package/@nosadev/vue-bottom-sheet)
 
-
-## Fork from [@nosa/vue-bottom-sheet](https://www.npmjs.com/package/@nosa/vue-bottom-sheet)
-
-![Size](https://img.shields.io/bundlephobia/minzip/@nosa/vue-bottom-sheet)
-![Downloads](https://img.shields.io/npm/dt/@nosa/vue-bottom-sheet)
-![Version](https://img.shields.io/npm/v/@nosa/vue-bottom-sheet)
+![Size](https://img.shields.io/bundlephobia/minzip/@nosadev/vue-bottom-sheet)
+![Downloads](https://img.shields.io/npm/dt/@nosadev/vue-bottom-sheet)
+![Version](https://img.shields.io/npm/v/@nosadev/vue-bottom-sheet)
 
 A nice clean and touch-friendly bottom sheet component based on [Vue.js](https://vuejs.org/) and [Typescript](https://www.typescriptlang.org/) for Vue 3
 
@@ -21,20 +19,20 @@ A nice clean and touch-friendly bottom sheet component based on [Vue.js](https:/
 ### NPM
 
 ```
-npm install @nosa/vue-bottom-sheet
+npm install @nosadev/vue-bottom-sheet
 ```
 
 ### Yarn
 
 ```
-yarn add @nosa/vue-bottom-sheet
+yarn add @nosadev/vue-bottom-sheet
 ```
 
 ## Usage `setup` + TS
 
 ```vue
 <script setup>
-import  BottomSheet  from '@nosa/vue-bottom-sheet'
+import  BottomSheet  from '@nosadev/vue-bottom-sheet'
 import { ref } from 'vue'
 
 const showSheet = ref<boolean>(false)
@@ -64,7 +62,7 @@ const showSheet = () => {
 ```vue
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BottomSheet from '@nosa/vue-bottom-sheet'
+import BottomSheet from '@nosadev/vue-bottom-sheet'
 
 export default defineComponent({
   components: {
