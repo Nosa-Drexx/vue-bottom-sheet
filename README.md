@@ -2,7 +2,9 @@
 
 Preview
 
-![Example](https://drive.google.com/file/d/1YuN45oVHuEaK2I1w0NGRV1PCv3INSoTX/view?usp=sharing)
+![Example](https://github.com/Nosa-Drexx/vue-bottom-sheet/assets/96873980/a3605f4d-7805-45b5-a033-2ea8abbf9512)
+
+
 
 ## Fork from [@nosa/vue-bottom-sheet](https://www.npmjs.com/package/@nosa/vue-bottom-sheet)
 
