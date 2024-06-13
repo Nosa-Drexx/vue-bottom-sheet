@@ -1,13 +1,15 @@
 {
   "name": "@nosadev/vue-bottom-sheet",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "type": "module",
   "description": "A Swipeable Bottom Sheet library for and vue3",
   "files": [
     "README.md",
-    "dist/*"
+    "dist/*",
+    "LICENSE"
   ],
+  "license": "MIT",
   "keywords": [
     "vue",
     "vue3",
