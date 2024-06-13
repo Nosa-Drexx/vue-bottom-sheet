@@ -110,8 +110,12 @@ export default defineComponent({
       const parentElement = e.target as HTMLDivElement
       parentElement === this.$refs.contentPopUp && this.onClose()
     },
-    handleStart(event: MouseEvent | TouchEvent) {
+    handleStart(event: MouseEvent | TouchEvent, from?: 'body') {
       if (this.useDragEffect) this.isSwiping = true
+      if (from === 'body') {
+        const scrollableDiv = this.$refs.scrollableContainer as HTMLDivElement
+        if (scrollableDiv.scrollTop !== 0) return
+      }
 
       if (isMouseEvent(event) && event.type === 'mousedown') {
         this.startY = event.clientY
@@ -120,8 +124,12 @@ export default defineComponent({
       }
     },
 
-    handleMove(event: MouseEvent | TouchEvent) {
+    handleMove(event: MouseEvent | TouchEvent, from?: 'body') {
       if (!this.isSwiping) return
+      if (from === 'body') {
+        const scrollableDiv = this.$refs.scrollableContainer as HTMLDivElement
+        if (scrollableDiv.scrollTop !== 0) return
+      }
       let currentY = 0
       const contentElem = this.$refs.content as HTMLDivElement
       //remove transition for smooth draging
@@ -181,6 +189,10 @@ export default defineComponent({
     v-if="!hidePopUp"
     @mouseup="handleEnd"
     @touchend="handleEnd"
+    @mousedown="(e) => handleStart(e, 'body')"
+    @mousemove="(e) => handleMove(e, 'body')"
+    @touchstart="(e) => handleStart(e, 'body')"
+    @touchmove="(e) => handleMove(e, 'body')"
     :style="{ '--overlay-bg': overlayBackground || 'rgba(0, 0, 0, 0.5)' }"
     :data-id="`${id}-overlay`"
   >
@@ -209,7 +221,11 @@ export default defineComponent({
           <span class="bottom-sheet-drag-indicator"></span>
         </slot>
       </div>
-      <div class="bottom-sheet-content-container" :data-id="`${id}-content`">
+      <div
+        class="bottom-sheet-content-container"
+        :data-id="`${id}-content`"
+        ref="scrollableContainer"
+      >
         <slot>
           <div class="bottom-sheet-demo">
             <h1>Vue3 Bottom Sheet 🚀</h1>
@@ -283,7 +299,7 @@ export default defineComponent({
   height: fit-content;
 }
 .bottom-sheet-content-container {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: fit-content;
   max-height: calc(100% - (var(--dragPosPadding) * 2 + var(--dragIconHeight)));
 }
