@@ -1,16 +1,39 @@
 {
   "name": "@nosa/vue-bottom-sheet",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue.js",
+    "modal",
+    "nuxt",
+    "bottom-sheet",
+    "pwa",
+    "dialog",
+    "swipe",
+    "component"
+  ],
+  "main": "./dist/@nosa/vue-bottom-sheet.cjs",
+  "module": "./dist/@nosa/vue-bottom-sheet.js",
+  "exports": {
+    ".": {
+      "import": "./dist/@nosa/vue-bottom-sheet.js",
+      "require": "./dist/@nosa/vue-bottom-sheet.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "types": "vue-tsc "
   },
   "dependencies": {
     "vue": "^3.4.21"
