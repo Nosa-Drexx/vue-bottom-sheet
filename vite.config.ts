@@ -19,7 +19,7 @@ export default defineConfig({
       // src/indext.ts is where we have exported the component(s)
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'BottomSheet',
-      fileName: (format: string) => `vue-bottom-sheet.${format}.js`
+      fileName: 'vue-bottom-sheet.js'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
