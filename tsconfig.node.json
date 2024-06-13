@@ -9,11 +9,14 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "noEmit": true,
+    // "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "types": ["node"]
-  }
+    "types": ["node"],
+    "outDir": "dist",
+    "declaration": true
+  },
+  "exclude": ["src/App.vue", "src/main.ts"]
 }

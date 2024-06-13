@@ -4,7 +4,7 @@ import type { DataType, DraggingPayload } from '@/global'
 import { isMouseEvent, isTouchEvent } from '@/utils'
 
 export default defineComponent({
-  inheritAttrs: false,
+  name: 'BottomSheet',
   emits: {
     ['dragging']: (payload: DraggingPayload) => payload,
     ['release-drag']: (payload: DraggingPayload) => payload,
