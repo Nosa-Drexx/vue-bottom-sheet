@@ -1,7 +1,7 @@
 {
-  "name": "@nosa/vue-bottom-sheet",
+  "name": "vue-bottom-sheet",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "files": [
     "dist"
@@ -18,12 +18,12 @@
     "swipe",
     "component"
   ],
-  "main": "./dist/@nosa/vue-bottom-sheet.cjs",
-  "module": "./dist/@nosa/vue-bottom-sheet.js",
+  "main": "./dist/vue-bottom-sheet.cjs",
+  "module": "./dist/vue-bottom-sheet.js",
   "exports": {
     ".": {
-      "import": "./dist/@nosa/vue-bottom-sheet.js",
-      "require": "./dist/@nosa/vue-bottom-sheet.umd.cjs"
+      "import": "./dist/vue-bottom-sheet.js",
+      "require": "./dist/vue-bottom-sheet.umd.cjs"
     },
     "./style.css": "./dist/style.css"
   },
