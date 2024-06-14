@@ -12,7 +12,7 @@ Preview
 
 A nice clean and touch-friendly bottom sheet component based on [Vue.js](https://vuejs.org/) and [Typescript](https://www.typescriptlang.org/) for Vue 3
 
-<!-- -  [Demo]() -->
+- [Live Demo](https://nosadev.netlify.app/)
 
 ## Installation
 
@@ -138,13 +138,13 @@ You can use this named slots:
 
 ```vue
 <template>
-  <vue-bottom-sheet ref="myBottomSheet">
+  <bottom-sheet>
     <template #header>
       <span> vue3---vue3 </span>
     </template>
     <template>
       <h2>Vue3 Bottom Sheet 🚀</h2>
     </template>
-  </vue-bottom-sheet>
+  </bottom-sheet>
 </template>
 ```
