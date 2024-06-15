@@ -31,7 +31,7 @@ export default defineComponent({
     id: { type: String as PropType<String> },
     maxHeight: {
       type: Number as PropType<number>,
-      default: 80,
+      default: 40,
       validator(val: number) {
         return val >= 10 && val <= 100
       }
@@ -164,11 +164,12 @@ export default defineComponent({
 
       const deltaY = currentY - this.startY
 
-      const newHeight = this.maxHeightInPx - deltaY
-      if (newHeight >= 0 && newHeight <= this.maxHeightInPx) {
+      const newHeight = Math.abs(this.maxHeightInPx - deltaY)
+      if (newHeight <= this.maxHeightInPx) {
         this.$emit('dragging', { event: event, contentHeight: newHeight })
-        const reducedCalInpercentage = 100 - (newHeight * 100) / this.maxHeightInPx
-        this.currentHeight = this.maxHeight - reducedCalInpercentage
+
+        const newCurrentHeight = (newHeight * this.maxHeight) / this.maxHeightInPx
+        this.currentHeight = newCurrentHeight
       }
     },
 
@@ -183,8 +184,8 @@ export default defineComponent({
       this.isSwiping = false
 
       this.isSwiping = false
-
       const heightReduction = this.maxHeight - this.currentHeight
+
       const reductionPercentage = (heightReduction / this.maxHeight) * 100
 
       this.$emit('release-drag', { event, contentHeight: this.currentHeight })
