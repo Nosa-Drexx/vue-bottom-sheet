@@ -31,7 +31,7 @@ export default defineComponent({
     id: { type: String as PropType<String> },
     maxHeight: {
       type: Number as PropType<number>,
-      default: 40,
+      default: 80,
       validator(val: number) {
         return val >= 10 && val <= 100
       }
