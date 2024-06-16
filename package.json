@@ -1,6 +1,6 @@
 {
   "name": "@nosadev/vue-bottom-sheet",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": false,
   "type": "module",
   "description": "A Swipeable Bottom Sheet library for and vue3",
@@ -28,7 +28,7 @@
   "repository": {
     "name": "@nosadev/vue-bottom-sheet",
     "type": "git",
-    "url": "git+https://github.com/Nosa-Drexx/vue-bottom-sheet"
+    "url": "https://github.com/Nosa-Drexx/vue-bottom-sheet.git"
   },
   "homepage": "https://github.com/Nosa-Drexx/vue-bottom-sheet#readme",
   "bugs": {
